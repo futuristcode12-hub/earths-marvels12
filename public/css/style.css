@@ -1096,4 +1096,25 @@ footer {
         font-size: 1.1rem !important;
         color: white !important;
     }
+}/* ===== FINAL MOBILE MENU VISIBILITY FIX ===== */
+@media (max-width: 768px) {
+    .nav-links.active {
+        display: flex !important;
+        background: var(--dark) !important;
+        border: 3px solid #ff0000 !important; /* Red border so you can see it */
+        transform: translateY(0) !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    
+    .nav-links.active li {
+        background: #ff0000 !important; /* Red background so you can see menu items */
+        margin: 5px 0 !important;
+    }
+    
+    .nav-links.active a {
+        color: white !important;
+        font-weight: bold !important;
+        font-size: 1.2rem !important;
+    }
 }
