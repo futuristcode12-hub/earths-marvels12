@@ -946,8 +946,21 @@ footer {
         margin-left: 0;
     }
     
+    /* HAMBURGER MENU FIX */
     .mobile-menu-btn {
-        display: block;
+        display: block !important;
+        background: none;
+        border: 2px solid white;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 8px 12px;
+        border-radius: 5px;
+        z-index: 1001;
+    }
+    
+    .mobile-menu-btn:hover {
+        background: rgba(255,255,255,0.1);
     }
     
     .nav-links {
@@ -957,10 +970,9 @@ footer {
         width: 100%;
         background-color: var(--dark);
         flex-direction: column;
-        align-items: center;
         padding: 20px 0;
         display: none;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         z-index: 1000;
     }
     
@@ -969,16 +981,16 @@ footer {
     }
     
     .nav-links li {
-        margin: 10px 0;
+        margin: 0;
         width: 100%;
         text-align: center;
     }
     
     .nav-links a {
         display: block;
-        padding: 12px 20px;
-        width: 100%;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 15px 20px;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        font-size: 1.1rem;
     }
     
     .hero {
