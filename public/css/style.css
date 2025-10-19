@@ -28,7 +28,7 @@ nav {
     padding: 15px 0;
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000; /* Increased z-index */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -186,6 +186,7 @@ p {
     color: white;
     padding: 0 20px;
     position: relative;
+    z-index: 1; /* Added z-index */
 }
 
 .hero-content {
@@ -909,7 +910,7 @@ footer {
     border: 1px solid #f5c6cb;
 }
 
-/* Responsive Design */
+/* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 992px) {
     .about-content, .contact-container {
         grid-template-columns: 1fr;
@@ -970,11 +971,15 @@ footer {
         padding: 20px 0;
         display: none;
         box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        z-index: 1000;
+        z-index: 1002; /* Higher z-index to appear above hero */
+        height: auto;
+        max-height: 80vh;
+        overflow-y: auto;
     }
     
     .nav-links.active {
         display: flex !important;
+        background-color: var(--dark) !important;
     }
     
     .nav-links li {
@@ -989,6 +994,13 @@ footer {
         width: 100%;
         border-bottom: 1px solid rgba(255,255,255,0.1);
         font-size: 1.1rem;
+        color: white !important;
+    }
+    
+    /* Ensure hero stays behind menu */
+    .hero {
+        z-index: 1;
+        position: relative;
     }
     
     .hero {
@@ -1045,102 +1057,5 @@ footer {
     
     .nav-card-icon i {
         font-size: 1.5rem;
-    }
-}
-
-/* ===== NUCLEAR MOBILE MENU FIX ===== */
-@media (max-width: 768px) {
-    .mobile-menu-btn {
-        display: block !important;
-        background: none !important;
-        border: 2px solid white !important;
-        color: white !important;
-        font-size: 1.5rem !important;
-        cursor: pointer !important;
-        padding: 8px 12px !important;
-        border-radius: 5px !important;
-        z-index: 1001 !important;
-    }
-    
-    .nav-links {
-        position: fixed !important;
-        top: 70px !important;
-        left: 0 !important;
-        width: 100% !important;
-        background-color: var(--dark) !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        padding: 20px 0 !important;
-        display: none !important;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.3) !important;
-        z-index: 1000 !important;
-    }
-    
-    .nav-links.active {
-        display: flex !important;
-        background: red !important;
-        border: 3px solid yellow !important;
-    }
-    
-    .nav-links li {
-        margin: 0 !important;
-        width: 100% !important;
-        text-align: center !important;
-    }
-    
-    .nav-links a {
-        display: block !important;
-        padding: 15px 20px !important;
-        width: 100% !important;
-        border-bottom: 1px solid rgba(255,255,255,0.1) !important;
-        font-size: 1.1rem !important;
-        color: white !important;
-    }
-}/* ===== FINAL MOBILE MENU VISIBILITY FIX ===== */
-@media (max-width: 768px) {
-    .nav-links.active {
-        display: flex !important;
-        background: var(--dark) !important;
-        border: 3px solid #ff0000 !important; /* Red border so you can see it */
-        transform: translateY(0) !important;
-        opacity: 1 !important;
-        visibility: visible !important;
-    }
-    
-    .nav-links.active li {
-        background: #ff0000 !important; /* Red background so you can see menu items */
-        margin: 5px 0 !important;
-    }
-    
-    .nav-links.active a {
-        color: white !important;
-        font-weight: bold !important;
-        font-size: 1.2rem !important;
-    }
-}/* ===== TEMPORARY - FIND THE MENU ===== */
-@media (max-width: 768px) {
-    .nav-links.active {
-        display: flex !important;
-        background: #ff0000 !important; /* Bright red background */
-        border: 5px solid #00ff00 !important; /* Bright green border */
-        position: fixed !important;
-        top: 100px !important; /* Force position */
-        left: 0 !important;
-        width: 100% !important;
-        height: 300px !important;
-        z-index: 9999 !important;
-        opacity: 1 !important;
-    }
-    
-    .nav-links.active li {
-        background: #0000ff !important; /* Bright blue items */
-        margin: 10px !important;
-        padding: 10px !important;
-    }
-    
-    .nav-links.active a {
-        color: #ffff00 !important; /* Bright yellow text */
-        font-size: 1.5rem !important;
-        font-weight: bold !important;
     }
 }
