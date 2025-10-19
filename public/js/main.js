@@ -12,19 +12,27 @@ function initializeNavigation() {
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const navLinksContainer = document.querySelector('.nav-links');
     
-    console.log('Mobile menu elements:', { mobileMenuBtn, navLinksContainer });
+    console.log('✅ Mobile menu elements FOUND:', {
+        mobileMenuBtn: mobileMenuBtn,
+        navLinksContainer: navLinksContainer,
+        navLinksContainerStyle: window.getComputedStyle(navLinksContainer).display
+    });
     
-    // Mobile menu toggle - FIXED VERSION
+    // Mobile menu toggle - SUPER DEBUG VERSION
     if (mobileMenuBtn && navLinksContainer) {
         mobileMenuBtn.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
-            console.log('Mobile menu clicked - before toggle:', navLinksContainer.classList.contains('active'));
+            console.log('🟡 Mobile menu CLICKED');
+            console.log('📱 Before toggle - classList:', navLinksContainer.classList.toString());
+            console.log('📱 Before toggle - computed display:', window.getComputedStyle(navLinksContainer).display);
             
             // Toggle the active class
             navLinksContainer.classList.toggle('active');
             
-            console.log('Mobile menu clicked - after toggle:', navLinksContainer.classList.contains('active'));
+            console.log('📱 After toggle - classList:', navLinksContainer.classList.toString());
+            console.log('📱 After toggle - computed display:', window.getComputedStyle(navLinksContainer).display);
+            console.log('📱 Has active class?', navLinksContainer.classList.contains('active'));
         });
         
         // Close mobile menu when clicking on nav links
@@ -35,7 +43,9 @@ function initializeNavigation() {
             });
         });
     } else {
-        console.error('Mobile menu elements not found!');
+        console.error('❌ Mobile menu elements NOT FOUND:');
+        console.error('Mobile button:', mobileMenuBtn);
+        console.error('Nav container:', navLinksContainer);
     }
     
     // Close mobile menu when clicking outside
