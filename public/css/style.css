@@ -960,16 +960,25 @@ footer {
         align-items: center;
         padding: 20px 0;
         display: none;
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         z-index: 1000;
     }
     
     .nav-links.active {
-        display: flex;
+        display: flex !important;
     }
     
     .nav-links li {
-        margin: 15px 0;
+        margin: 10px 0;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .nav-links a {
+        display: block;
+        padding: 12px 20px;
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
     
     .hero {
