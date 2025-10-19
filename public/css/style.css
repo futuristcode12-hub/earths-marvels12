@@ -1117,4 +1117,30 @@ footer {
         font-weight: bold !important;
         font-size: 1.2rem !important;
     }
+}/* ===== TEMPORARY - FIND THE MENU ===== */
+@media (max-width: 768px) {
+    .nav-links.active {
+        display: flex !important;
+        background: #ff0000 !important; /* Bright red background */
+        border: 5px solid #00ff00 !important; /* Bright green border */
+        position: fixed !important;
+        top: 100px !important; /* Force position */
+        left: 0 !important;
+        width: 100% !important;
+        height: 300px !important;
+        z-index: 9999 !important;
+        opacity: 1 !important;
+    }
+    
+    .nav-links.active li {
+        background: #0000ff !important; /* Bright blue items */
+        margin: 10px !important;
+        padding: 10px !important;
+    }
+    
+    .nav-links.active a {
+        color: #ffff00 !important; /* Bright yellow text */
+        font-size: 1.5rem !important;
+        font-weight: bold !important;
+    }
 }
