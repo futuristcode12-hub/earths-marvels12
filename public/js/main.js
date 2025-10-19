@@ -12,17 +12,39 @@ function initializeNavigation() {
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const navLinksContainer = document.querySelector('.nav-links');
     
-    // Mobile menu toggle
-    if (mobileMenuBtn) {
-        mobileMenuBtn.addEventListener('click', function() {
+    console.log('Mobile menu elements:', { mobileMenuBtn, navLinksContainer });
+    
+    // Mobile menu toggle - FIXED VERSION
+    if (mobileMenuBtn && navLinksContainer) {
+        mobileMenuBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log('Mobile menu clicked - before toggle:', navLinksContainer.classList.contains('active'));
+            
+            // Toggle the active class
             navLinksContainer.classList.toggle('active');
+            
+            console.log('Mobile menu clicked - after toggle:', navLinksContainer.classList.contains('active'));
         });
+        
+        // Close mobile menu when clicking on nav links
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                navLinksContainer.classList.remove('active');
+                console.log('Nav link clicked - menu closed');
+            });
+        });
+    } else {
+        console.error('Mobile menu elements not found!');
     }
     
     // Close mobile menu when clicking outside
     document.addEventListener('click', function(event) {
-        if (!event.target.closest('nav') && navLinksContainer.classList.contains('active')) {
-            navLinksContainer.classList.remove('active');
+        if (navLinksContainer && navLinksContainer.classList.contains('active')) {
+            if (!event.target.closest('nav')) {
+                navLinksContainer.classList.remove('active');
+                console.log('Clicked outside - menu closed');
+            }
         }
     });
     
@@ -38,7 +60,9 @@ function initializeNavigation() {
                 window.history.pushState({ page: pageId }, '', `/${pageId === 'home' ? '' : pageId}`);
                 
                 // Close mobile menu if open
-                navLinksContainer.classList.remove('active');
+                if (navLinksContainer) {
+                    navLinksContainer.classList.remove('active');
+                }
                 
                 // Scroll to top
                 window.scrollTo({
