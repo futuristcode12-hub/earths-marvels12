@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery | Earth's Marvels</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="logo"><i class="fas fa-globe-americas"></i> Earth's Marvels</a>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/wonders" class="nav-link">Wonders</a></li>
+                <li><a href="/gallery" class="nav-link active">Gallery</a></li>
+                <li><a href="/about" class="nav-link">About</a></li>
+                <li><a href="/contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Gallery Page Content -->
+    <main>
+        <section class="hero gallery-hero">
+            <div class="hero-content">
+                <h1>Earth's Gallery</h1>
+                <p class="tagline">A visual journey through the stunning landscapes of our planet</p>
+            </div>
+        </section>
+
+        <section class="gallery-content">
+            <div class="container">
+                <div class="gallery-filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="mountains">Mountains</button>
+                    <button class="filter-btn" data-filter="oceans">Oceans</button>
+                    <button class="filter-btn" data-filter="forests">Forests</button>
+                    <button class="filter-btn" data-filter="deserts">Deserts</button>
+                    <button class="filter-btn" data-filter="sky">Sky & Weather</button>
+                </div>
+
+                <div class="photo-gallery">
+                    <div class="photo-item" data-category="mountains">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80
+" alt="Mountain Landscape">
+                        <div class="photo-overlay">
+                            <h3>Majestic Peaks</h3>
+                            <p>Himalayan Range at sunrise</p>
+                        </div>
+                    </div>
+
+                    <div class="photo-item" data-category="oceans">
+                        <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Ocean View">
+                        <div class="photo-overlay">
+                            <h3>Azure Waters</h3>
+                            <p>Crystal clear Pacific Ocean</p>
+                        </div>
+                    </div>
+
+                    <div class="photo-item" data-category="forests">
+                        <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80" alt="Forest">
+                        <div class="photo-overlay">
+                            <h3>Ancient Woods</h3>
+                            <p>Misty redwood forest</p>
+                        </div>
+                    </div>
+
+                    <div class="photo-item" data-category="deserts">
+                        <img src="https://images.unsplash.com/photo-1542401886-65d6c61db217?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1470" alt="Desert">
+                        <div class="photo-overlay">
+                            <h3>Golden Sands</h3>
+                            <p>Sahara Desert dunes</p>
+                        </div>
+                    </div>
+
+                    <div class="photo-item" data-category="mountains">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Mountain Range">
+                        <div class="photo-overlay">
+                            <h3>Alpine Beauty</h3>
+                            <p>Swiss Alps panorama</p>
+                        </div>
+                    </div>
+
+                    <div class="photo-item" data-category="oceans">
+                        <img src="https://images.unsplash.com/photo-1505142468610-359e7d316be0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2066&q=80" alt="Waterfall">
+                        <div class="photo-overlay">
+                            <h3>Powerful Falls</h3>
+                            <p>Iguazu Falls power</p>
+                        </div>
+                    </div>
+
+                    <div class="photo-item" data-category="sky">
+                        <img src="https://images.unsplash.com/photo-1506260408121-e353d10b87c7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2128&q=80" alt="Aurora">
+                        <div class="photo-overlay">
+                            <h3>Northern Lights</h3>
+                            <p>Arctic aurora display</p>
+                        </div>
+                    </div>
+
+                    <div class="photo-item" data-category="forests">
+                        <img src="https://images.unsplash.com/photo-1476820865390-c52aeebb9891?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Rainforest">
+                        <div class="photo-overlay">
+                            <h3>Tropical Paradise</h3>
+                            <p>Amazon rainforest canopy</p>
+                        </div>
+                    </div>
+
+                    <div class="photo-item" data-category="oceans">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Coast">
+                        <div class="photo-overlay">
+                            <h3>Rocky Coast</h3>
+                            <p>Dramatic coastal formation</p>
+                        </div>
+                    </div>
+
+                    <div class="photo-item" data-category="sky">
+                        <img src="https://images.unsplash.com/photo-1505142468610-359e7d316be0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2066&q=80" alt="Storm">
+                        <div class="photo-overlay">
+                            <h3>Electric Sky</h3>
+                            <p>Lightning storm spectacle</p>
+                        </div>
+                    </div>
+
+                    <div class="photo-item" data-category="deserts">
+                        <img src="https://images.unsplash.com/photo-1691520326140-05a37ea5d9c9?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1527" alt="Desert Oasis">
+                        <div class="photo-overlay">
+                            <h3>Desert Oasis</h3>
+                            <p>Life in the arid landscape</p>
+                        </div>
+                    </div>
+
+                    <div class="photo-item" data-category="mountains">
+                        <img src="https://images.unsplash.com/photo-1580250642511-1660fe42ad58?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1450" alt="Volcano">
+                        <div class="photo-overlay">
+                            <h3>Fiery Mountain</h3>
+                            <p>Active volcanic eruption</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>About Earth's Marvels</h3>
+                <p>This website is dedicated to celebrating the incredible beauty and diversity of our planet. We hope to inspire appreciation and conservation of Earth's natural wonders.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/wonders">Natural Wonders</a></li>
+                    <li><a href="/gallery">Photo Gallery</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Newsletter</h3>
+                <p>Subscribe to our newsletter to receive updates on new content and conservation initiatives.</p>
+                <form class="newsletter-form">
+                    <div class="form-group">
+                        <input type="email" class="form-control" placeholder="Your email address" required>
+                    </div>
+                    <button type="submit" class="btn">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 Earth's Marvels. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>

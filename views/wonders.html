@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Natural Wonders | Earth's Marvels</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="logo"><i class="fas fa-globe-americas"></i> Earth's Marvels</a>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/wonders" class="nav-link active">Wonders</a></li>
+                <li><a href="/gallery" class="nav-link">Gallery</a></li>
+                <li><a href="/about" class="nav-link">About</a></li>
+                <li><a href="/contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Wonders Page Content -->
+    <main>
+        <section class="hero wonders-hero">
+            <div class="hero-content">
+                <h1>Natural Wonders</h1>
+                <p class="tagline">Discover the most breathtaking natural wonders our planet has to offer</p>
+            </div>
+        </section>
+
+        <section class="wonders-content">
+            <div class="container">
+                <div class="wonders-categories">
+                    <button class="category-btn active" data-category="all">All Wonders</button>
+                    <button class="category-btn" data-category="mountains">Mountains</button>
+                    <button class="category-btn" data-category="water">Water Bodies</button>
+                    <button class="category-btn" data-category="forests">Forests</button>
+                    <button class="category-btn" data-category="deserts">Deserts</button>
+                </div>
+
+                <div class="wonders-container">
+                    <div class="wonder-item" data-category="mountains">
+                        <div class="wonder-img" style="background-image: url('https://images.unsplash.com/photo-1676471049029-f93852da351d?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1562')"></div>
+                        <div class="wonder-info">
+                            <h3>Mount Everest</h3>
+                            <p>The highest mountain on Earth, standing at 8,848 meters above sea level. Located in the Mahalangur Himal sub-range of the Himalayas, it represents the ultimate challenge for mountaineers and symbolizes human perseverance.</p>
+                            <div class="wonder-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Nepal/China Border</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="wonder-item" data-category="water">
+                        <div class="wonder-img" style="background-image: url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')"></div>
+                        <div class="wonder-info">
+                            <h3>Great Barrier Reef</h3>
+                            <p>The world's largest coral reef system composed of over 2,900 individual reefs and 900 islands stretching for over 2,300 kilometers. This living structure is visible from space and hosts incredible marine biodiversity.</p>
+                            <div class="wonder-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Coral Sea, Australia</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="wonder-item" data-category="forests">
+                        <div class="wonder-img" style="background-image: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80')"></div>
+                        <div class="wonder-info">
+                            <h3>Amazon Rainforest</h3>
+                            <p>The largest tropical rainforest in the world, covering approximately 5.5 million square kilometers and hosting incredible biodiversity. Often called the "Lungs of the Planet," it produces 20% of the world's oxygen.</p>
+                            <div class="wonder-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>South America</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="wonder-item" data-category="deserts">
+                        <div class="wonder-img" style="background-image: url('https://images.unsplash.com/photo-1489573280374-2e193c63726c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1470')"></div>
+                        <div class="wonder-info">
+                            <h3>Sahara Desert</h3>
+                            <p>The largest hot desert in the world, covering much of North Africa. It's almost as large as China and the United States. Despite its harsh conditions, it's home to unique ecosystems and ancient cultures.</p>
+                            <div class="wonder-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>North Africa</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="wonder-item" data-category="water">
+                        <div class="wonder-img" style="background-image: url('https://images.unsplash.com/photo-1505142468610-359e7d316be0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2066&q=80')"></div>
+                        <div class="wonder-info">
+                            <h3>Victoria Falls</h3>
+                            <p>One of the largest and most famous waterfalls in the world, located on the Zambezi River at the border between Zambia and Zimbabwe. The local name "Mosi-oa-Tunya" means "The Smoke That Thunders."</p>
+                            <div class="wonder-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Zambia/Zimbabwe Border</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="wonder-item" data-category="mountains">
+                        <div class="wonder-img" style="background-image: url('https://images.unsplash.com/photo-1506260408121-e353d10b87c7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2128&q=80')"></div>
+                        <div class="wonder-info">
+                            <h3>Grand Canyon</h3>
+                            <p>A steep-sided canyon carved by the Colorado River in Arizona. It is 446 km long, up to 29 km wide, and attains a depth of over 1,800 meters. The canyon's layered bands of rock reveal millions of years of geological history.</p>
+                            <div class="wonder-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Arizona, USA</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="wonder-item" data-category="water">
+                        <div class="wonder-img" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')"></div>
+                        <div class="wonder-info">
+                            <h3>Galápagos Islands</h3>
+                            <p>An archipelago of volcanic islands distributed on either side of the equator in the Pacific Ocean. Known for their vast number of endemic species, they were studied by Charles Darwin during the voyage of the Beagle.</p>
+                            <div class="wonder-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Pacific Ocean, Ecuador</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="wonder-item" data-category="mountains">
+                        <div class="wonder-img" style="background-image: url('https://images.unsplash.com/photo-1585951619576-6e961950cb60?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=387')"></div>
+                        <div class="wonder-info">
+                            <h3>Matterhorn</h3>
+                            <p>A mountain of the Alps, straddling the main watershed and border between Switzerland and Italy. It is a large, near-symmetric pyramidal peak and has become an iconic emblem of the Alps in particular.</p>
+                            <div class="wonder-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Switzerland/Italy Border</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>About Earth's Marvels</h3>
+                <p>This website is dedicated to celebrating the incredible beauty and diversity of our planet. We hope to inspire appreciation and conservation of Earth's natural wonders.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/wonders">Natural Wonders</a></li>
+                    <li><a href="/gallery">Photo Gallery</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Newsletter</h3>
+                <p>Subscribe to our newsletter to receive updates on new content and conservation initiatives.</p>
+                <form class="newsletter-form">
+                    <div class="form-group">
+                        <input type="email" class="form-control" placeholder="Your email address" required>
+                    </div>
+                    <button type="submit" class="btn">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 Earth's Marvels. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>
