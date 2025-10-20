@@ -6,7 +6,7 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware
+// Middleware - serve static files from public folder
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -141,25 +141,30 @@ app.post('/subscribe', async (req, res) => {
   }
 });
 
-// Serve HTML pages
+// Serve HTML pages from VIEWS folder - CORRECTED
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, 'views', 'home.html'));
 });
 
 app.get('/wonders', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'wonders.html'));
+  res.sendFile(path.join(__dirname, 'views', 'wonders.html'));
 });
 
 app.get('/gallery', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'gallery.html'));
+  res.sendFile(path.join(__dirname, 'views', 'gallery.html'));
 });
 
 app.get('/about', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'about.html'));
+  res.sendFile(path.join(__dirname, 'views', 'about.html'));
 });
 
 app.get('/contact', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'contact.html'));
+  res.sendFile(path.join(__dirname, 'views', 'contact.html'));
+});
+
+// Catch-all route for any other requests
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'views', 'home.html'));
 });
 
 app.listen(PORT, () => {
