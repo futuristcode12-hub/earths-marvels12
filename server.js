@@ -11,8 +11,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Email transporter setup
-const transporter = nodemailer.createTransporter({
+// Email transporter setup - CORRECTED
+const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     user: process.env.EMAIL_USER,
