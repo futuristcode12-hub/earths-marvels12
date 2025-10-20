@@ -12,49 +12,17 @@ function initializeNavigation() {
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const navLinksContainer = document.querySelector('.nav-links');
     
-    console.log('✅ Mobile menu elements FOUND:', {
-        mobileMenuBtn: mobileMenuBtn,
-        navLinksContainer: navLinksContainer,
-        navLinksContainerStyle: window.getComputedStyle(navLinksContainer).display
-    });
-    
-    // Mobile menu toggle - SUPER DEBUG VERSION
-    if (mobileMenuBtn && navLinksContainer) {
-        mobileMenuBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            console.log('🟡 Mobile menu CLICKED');
-            console.log('📱 Before toggle - classList:', navLinksContainer.classList.toString());
-            console.log('📱 Before toggle - computed display:', window.getComputedStyle(navLinksContainer).display);
-            
-            // Toggle the active class
+    // Mobile menu toggle
+    if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', function() {
             navLinksContainer.classList.toggle('active');
-            
-            console.log('📱 After toggle - classList:', navLinksContainer.classList.toString());
-            console.log('📱 After toggle - computed display:', window.getComputedStyle(navLinksContainer).display);
-            console.log('📱 Has active class?', navLinksContainer.classList.contains('active'));
         });
-        
-        // Close mobile menu when clicking on nav links
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                navLinksContainer.classList.remove('active');
-                console.log('Nav link clicked - menu closed');
-            });
-        });
-    } else {
-        console.error('❌ Mobile menu elements NOT FOUND:');
-        console.error('Mobile button:', mobileMenuBtn);
-        console.error('Nav container:', navLinksContainer);
     }
     
     // Close mobile menu when clicking outside
     document.addEventListener('click', function(event) {
-        if (navLinksContainer && navLinksContainer.classList.contains('active')) {
-            if (!event.target.closest('nav')) {
-                navLinksContainer.classList.remove('active');
-                console.log('Clicked outside - menu closed');
-            }
+        if (!event.target.closest('nav') && navLinksContainer.classList.contains('active')) {
+            navLinksContainer.classList.remove('active');
         }
     });
     
@@ -70,9 +38,7 @@ function initializeNavigation() {
                 window.history.pushState({ page: pageId }, '', `/${pageId === 'home' ? '' : pageId}`);
                 
                 // Close mobile menu if open
-                if (navLinksContainer) {
-                    navLinksContainer.classList.remove('active');
-                }
+                navLinksContainer.classList.remove('active');
                 
                 // Scroll to top
                 window.scrollTo({
