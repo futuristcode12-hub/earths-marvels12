@@ -4,7 +4,26 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeNavigation();
     initializePageSpecificFeatures();
     initializeForms();
+    initializeAnimations(); // Added this line
 });
+
+// Animation initialization
+function initializeAnimations() {
+    // Add animate class to wonder items
+    const wonderItems = document.querySelectorAll('.wonder-item');
+    const photoItems = document.querySelectorAll('.photo-item');
+    
+    // Add animate class after a short delay to trigger CSS transitions
+    setTimeout(() => {
+        wonderItems.forEach(item => {
+            item.classList.add('animate');
+        });
+        
+        photoItems.forEach(item => {
+            item.classList.add('animate');
+        });
+    }, 100);
+}
 
 // Navigation functionality
 function initializeNavigation() {
@@ -21,7 +40,7 @@ function initializeNavigation() {
     
     // Close mobile menu when clicking outside
     document.addEventListener('click', function(event) {
-        if (!event.target.closest('nav') && navLinksContainer.classList.contains('active')) {
+        if (!event.target.closest('nav') && navLinksContainer && navLinksContainer.classList.contains('active')) {
             navLinksContainer.classList.remove('active');
         }
     });
@@ -111,22 +130,34 @@ function initializeWondersFiltering() {
                 
                 const category = this.getAttribute('data-category');
                 
-                // Filter items
+                // Add filtering class for animation
                 wonderItems.forEach(item => {
-                    if (category === 'all' || item.getAttribute('data-category') === category) {
-                        item.style.display = 'block';
-                        setTimeout(() => {
-                            item.style.opacity = '1';
-                            item.style.transform = 'translateY(0)';
-                        }, 50);
-                    } else {
-                        item.style.opacity = '0';
-                        item.style.transform = 'translateY(20px)';
-                        setTimeout(() => {
-                            item.style.display = 'none';
-                        }, 300);
-                    }
+                    item.classList.add('filtering');
                 });
+                
+                // Filter items with animation
+                setTimeout(() => {
+                    wonderItems.forEach(item => {
+                        if (category === 'all' || item.getAttribute('data-category') === category) {
+                            item.classList.remove('hidden');
+                            item.classList.add('visible');
+                            item.style.display = 'block';
+                        } else {
+                            item.classList.add('hidden');
+                            item.classList.remove('visible');
+                            setTimeout(() => {
+                                item.style.display = 'none';
+                            }, 400);
+                        }
+                    });
+                }, 50);
+                
+                // Remove filtering class after animation
+                setTimeout(() => {
+                    wonderItems.forEach(item => {
+                        item.classList.remove('filtering');
+                    });
+                }, 500);
             });
         });
     }
@@ -147,20 +178,34 @@ function initializeGalleryFiltering() {
                 
                 const filter = this.getAttribute('data-filter');
                 
-                // Filter items
+                // Add filtering class for animation
                 photoItems.forEach(item => {
-                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
-                        item.style.display = 'block';
-                        setTimeout(() => {
-                            item.style.opacity = '1';
-                        }, 50);
-                    } else {
-                        item.style.opacity = '0';
-                        setTimeout(() => {
-                            item.style.display = 'none';
-                        }, 300);
-                    }
+                    item.classList.add('filtering');
                 });
+                
+                // Filter items with animation
+                setTimeout(() => {
+                    photoItems.forEach(item => {
+                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                            item.classList.remove('hidden');
+                            item.classList.add('visible');
+                            item.style.display = 'block';
+                        } else {
+                            item.classList.add('hidden');
+                            item.classList.remove('visible');
+                            setTimeout(() => {
+                                item.style.display = 'none';
+                            }, 400);
+                        }
+                    });
+                }, 50);
+                
+                // Remove filtering class after animation
+                setTimeout(() => {
+                    photoItems.forEach(item => {
+                        item.classList.remove('filtering');
+                    });
+                }, 500);
             });
         });
     }
@@ -368,11 +413,4 @@ function addInteractiveEffects() {
             element.style.transform = `translate3d(0, ${rate}px, 0)`;
         });
     });
-}
-
-// Initialize when DOM is loaded
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initializeNavigation);
-} else {
-    initializeNavigation();
 }

@@ -13,6 +13,8 @@
     --dark: #1a1f1a;
     --text: #333;
     --text-light: #666;
+    --animation-duration: 0.6s;
+    --animation-timing: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 body {
@@ -24,7 +26,7 @@ body {
 
 /* Navigation */
 nav {
-    background-color: var(--dark);
+    background-color: var(--primary); /* CHANGED TO GREEN */
     padding: 15px 0;
     position: sticky;
     top: 0;
@@ -413,7 +415,8 @@ p {
     line-height: 1.6;
 }
 
-/* Wonders Page */
+/* ========== WONDERS PAGE ANIMATIONS ========== */
+
 .wonders-hero {
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), 
                      url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2074&q=80');
@@ -437,40 +440,96 @@ p {
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.category-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.category-btn:hover::before {
+    left: 100%;
 }
 
 .category-btn.active, .category-btn:hover {
     background-color: var(--accent);
     color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
-.wonders-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 30px;
-}
-
+/* Wonder Items Entrance Animation */
 .wonder-item {
+    opacity: 0;
+    transform: translateY(50px) scale(0.95);
+    transition: all var(--animation-duration) var(--animation-timing);
     background-color: white;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
 }
 
+.wonder-item.animate {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Wonder Image Hover Effects */
 .wonder-img {
     height: 220px;
     background-size: cover;
     background-position: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.5s ease;
+}
+
+.wonder-img::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(44, 85, 48, 0.3), rgba(143, 188, 143, 0.3));
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 1;
+}
+
+.wonder-item:hover .wonder-img {
+    transform: scale(1.05);
+}
+
+.wonder-item:hover .wonder-img::before {
+    opacity: 1;
 }
 
 .wonder-info {
     padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+.wonder-item:hover .wonder-info {
+    transform: translateY(-5px);
 }
 
 .wonder-info h3 {
     margin-bottom: 10px;
     color: var(--primary);
+    transition: color 0.3s ease;
+}
+
+.wonder-item:hover .wonder-info h3 {
+    color: var(--secondary);
 }
 
 .wonder-info p {
@@ -483,13 +542,41 @@ p {
     align-items: center;
     color: var(--secondary);
     font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.wonder-item:hover .wonder-location {
+    color: var(--primary);
 }
 
 .wonder-location i {
     margin-right: 8px;
 }
 
-/* Gallery Page */
+.wonders-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+/* Filter Animation States */
+.wonder-item.filtering {
+    transition: all 0.4s ease;
+}
+
+.wonder-item.hidden {
+    opacity: 0;
+    transform: scale(0.8);
+    pointer-events: none;
+}
+
+.wonder-item.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* ========== GALLERY PAGE ANIMATIONS ========== */
+
 .gallery-hero {
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), 
                      url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
@@ -513,13 +600,33 @@ p {
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.filter-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.filter-btn:hover::before {
+    left: 100%;
 }
 
 .filter-btn.active, .filter-btn:hover {
     background-color: var(--accent);
     color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
+/* Photo Gallery Animations */
 .photo-gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -533,6 +640,13 @@ p {
     height: 250px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+}
+
+.photo-item.animate {
+    opacity: 1;
+    transform: translateY(0) scale(1);
 }
 
 .photo-item img {
@@ -565,6 +679,39 @@ p {
 .photo-overlay h3 {
     margin-bottom: 5px;
     color: white;
+    transform: translateY(20px);
+    transition: transform 0.3s ease 0.1s;
+}
+
+.photo-item:hover .photo-overlay h3 {
+    transform: translateY(0);
+}
+
+.photo-overlay p {
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.3s ease 0.2s;
+}
+
+.photo-item:hover .photo-overlay p {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Gallery Filter Animation States */
+.photo-item.filtering {
+    transition: all 0.4s ease;
+}
+
+.photo-item.hidden {
+    opacity: 0;
+    transform: scale(0.8);
+    pointer-events: none;
+}
+
+.photo-item.visible {
+    opacity: 1;
+    transform: scale(1);
 }
 
 /* About Page */
@@ -954,7 +1101,7 @@ footer {
         top: 70px;
         left: 0;
         width: 100%;
-        background-color: var(--dark);
+        background-color: var(--primary); /* CHANGED TO GREEN */
         flex-direction: column;
         align-items: center;
         padding: 20px 0;
@@ -962,11 +1109,13 @@ footer {
         opacity: 0;
         transition: all 0.3s ease;
         box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        pointer-events: none;
     }
     
     .nav-links.active {
         transform: translateY(0);
         opacity: 1;
+        pointer-events: auto;
     }
     
     .nav-links li {
@@ -996,12 +1145,6 @@ footer {
     .wonders-grid {
         grid-template-columns: 1fr;
     }
-}
-
-@media (max-width: 480px) {
-    .impact-stats {
-        grid-template-columns: 1fr;
-    }
     
     .wonders-container, .photo-gallery {
         grid-template-columns: 1fr;
@@ -1014,6 +1157,12 @@ footer {
     
     .category-btn, .filter-btn {
         width: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .impact-stats {
+        grid-template-columns: 1fr;
     }
     
     .nav-card {
